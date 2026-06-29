@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ada sesuatu buat yooyyoo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="musicPage1" src="lagu1.mp3" loop></audio>
+    <audio id="musicPage2" src="lagu2.mp3" loop></audio>
+    <audio id="musicPage3" src="lagu3.mp3" loop></audio>
+
+    <section id="page1" class="page active">  
+        <div class="welcome-container">
+            <p class="petunjuk-musik">✨ Klik di mana saja pada layar ini untuk menyalakan musik ✨</p>
+            <div class="heart-icon">💖</div>
+            <h1 class="main-title">Halo Ryooo...</h1>
+            <p class="sub-title">Ada pesan kecil buat yoyyo . Dipersembahkan dengan eportciponn. ✨</p>
+            <button class="next-btn" onclick="nextPage(1, 2)">Buka Pesan 💌</button>    
+        </div>
+    </section>
+
+<script>
+    function moveToPage2() {
+        const firstMusic = document.getElementById('musicPage1');
+        if (firstMusic) {
+            firstMusic.pause();
+            firstMusic.currentTime = 0; 
+        }
+
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        if (page1 && page2) {
+            page1.classList.remove('active'); 
+            page2.classList.add('active');    
+        }
+        window.scrollTo(0, 0);
+    }
+</script>
+    <section id="page2" class="page">
+        <div class="welcome-container">
+            <h1 class="main-title">Pilih Tanggalnya dulu!</h1>
+            <p class="sub-title">Sebelum masuk, pilih tanggal spesial, gatausi ituu spesialganya buat yyoo~</p>
+    <h2>Kapaan tanggalnya yaaa?</h2>
+    <p>Silakan pilih tanggal yang tepat untuk melanjutkan:</p>
+    
+    <!-- Input Tanggal -->
+    <input type="date" id="tanggalKunci" class="input-tanggal">
+    
+    <!-- Tombol Lanjut (Awalnya disembunyikan menggunakan inline style) -->
+    <button id="btnLanjutPage3" class="next-btn" style="display: none;" onclick="nextPage()">Lanjut ✨</button>
+    
+    <!-- Pesan error opsional jika salah pilih tanggal -->
+    <p id="pesanSalah" style="color: #ff4b5c; font-size: 14px; margin-top: 10px; display: none;">Ups! Tanggalnya bukan yang itu coba diingat-ingat lagi~</p>
+        </div>
+    </section>
+
+    <section id="page3" class="page">
+        <main class="container-ultah">
+            <div class="decor-heart">🎉🎂💖</div>
+            <h1 class="judul-ultah">Selamat Ulang Tahun! </h1>
+
+            <div class="kotak-ucapan">
+                <p>Haloo sayyangku, selamat hari yoyyo lahir! Di hari ini, pon cuma mau bilang terima kasih banyak udah hadir di hidup pon. Makasih udah selalu ada buat pon dan selalu bantu pon. 💕</p>
+                <p>Semoga kedepannya yoyyoo jadi lebih baik,tambah ganteng, soft spoken wokwowok, lebih sabar, rajin ibadahhh!, diberi kesehatan dan rezki yang melimpah. semoga tahun depan yoyyo ga ngerasain birthday blues lagi, semoga yang sakitt menjadi sehat. Jangan pernah merasa sendiri yaa, walaupun pon gabisa kasi solusi, pon ada buat dengerin yoyyo dan nangis bareng yyoo~ 🫶</p>
+                <p>Pon benar tulus doain yyoo, berharap yyoo bisa lebih baikk. pon gatausi siapa yang ada dihati yyoo, lambat laun juga perasaan pon juga habis, moga kita bisa bareng terus, bisa belajar bareng, fokus kuliah bareng. I love you so much! 😘</p>
+                <span class="hashtag-ultah">#yoyyodayyyyyy👑</span>
+            </div>
+
+            <div class="galeri-tiga-foto">
+                <div class="bingkai-foto">
+                    <img src="gambar/foto1.jpeg" alt="Foto 1">
+                    <p class="caption-foto">foto apani ✨</p>
+                </div>
+                <div class="bingkai-foto">
+                    <img src="gambar/foto2.jpeg" alt="Foto 2">
+                    <p class="caption-foto">yoyyo imut! 💖</p>
+                </div>
+                <div class="bingkai-foto">
+                    <img src="gambar/foto3.jpeg" alt="Foto 3">
+                    <p class="caption-foto">ada mirip yyooni? 🥰</p>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script>
+        const dateInput = document.getElementById('specialDate');
+        const nextBtnHalaman2 = document.getElementById('nextPageBtn');
+
+        // Mengaktifkan tombol jika tanggal sudah diisi di Halaman 2
+        dateInput.addEventListener('change', function() {
+            if (this.value) {
+                nextBtnHalaman2.removeAttribute('disabled');
+            } else {
+                nextBtnHalaman2.setAttribute('disabled', 'true');
+            }
+        });
+
+<script>
+        // Fungsi perpindahan halaman beserta lagunya
+        function nextPage(currentPage, targetPage) {
+            // 1. Matikan lagu di halaman saat ini
+            const currentMusic = document.getElementById(`musicPage${currentPage}`);
+            if (currentMusic) {
+                currentMusic.pause();
+                currentMusic.currentTime = 0; // Reset lagu ke awal
+            }
+
+            // 2. Putar lagu untuk halaman berikutnya
+            const targetMusic = document.getElementById(`musicPage${targetPage}`);
+            if (targetMusic) {
+                targetMusic.play().catch(error => {
+                    console.log("Autoplay dicegah oleh browser, lagu akan berputar setelah interaksi.");
+                });
+            }
+
+            // 3. Efek transisi perpindahan tampilan halaman
+            const currentEl = document.getElementById(`page${currentPage}`);
+            currentEl.classList.remove('active');
+            
+            setTimeout(() => {
+                const targetEl = document.getElementById(`page${targetPage}`);
+                targetEl.classList.add('active');
+                window.scrollTo(0, 0); // Reset scroll layar kembali ke atas
+            }, 300);
+        }
+
+        // Trigger lagu pertama berjalan saat user pertama kali mengklik layar (Syarat keamanan Browser)
+        window.addEventListener('click', () => {
+            const firstMusic = document.getElementById('musicPage1');
+            // Hanya putar jika halaman 1 sedang aktif dan lagu belum jalan
+            if(document.getElementById('page1').classList.contains('active') && firstMusic.paused) {
+                firstMusic.play().catch(err => console.log(err));
+            }
+        }, { once: true }); // Hanya berjalan 1 kali klik saja
+    </script> 
+
+    <script src="script.js"></script>
+</body>        

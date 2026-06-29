@@ -1,0 +1,243 @@
+/* Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    /* Background Hitam Elegan dengan gradasi ke abu-abu sangat gelap */
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    min-height: 100vh;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Dekorasi Bunga Hitam Esestik di Latar Belakang (Menggunakan Ikon Karakter) */
+body::before {
+    content: "🥀";
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    font-size: 5rem;
+    opacity: 0.15;
+    filter: grayscale(100%) brightness(50%);
+    pointer-events: none;
+}
+
+body::after {
+    content: "🥀";
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    font-size: 6rem;
+    opacity: 0.15;
+    filter: grayscale(100%) brightness(50%);
+    pointer-events: none;
+}
+
+/* Pengaturan Sistem Halaman (Sembunyi/Muncul) */
+.page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.page.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Struktur Kotak Welcome & Tanggal */
+.welcome-container {
+    text-align: center;
+    background: rgba(25, 25, 25, 0.75);
+    padding: 40px 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(8px); /* Efek kaca buram gelap */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    border: 1px solid #333;
+    max-width: 400px;
+    width: 90%;
+    margin: auto;
+}
+
+.heart-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    animation: pulse 1.5s infinite;
+    display: inline-block;
+}
+
+.main-title {
+    font-family: 'Sacramento', cursive;
+    font-size: 3.2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.sub-title {
+    font-size: 0.95rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Input Tanggal Kurva Gelap */
+.date-input-container {
+    margin-bottom: 25px;
+}
+
+.date-picker {
+    font-family: 'Ubuntu', sans-serif;
+    padding: 12px 18px;
+    font-size: 1rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    outline: none;
+    color: #ffffff;
+    background-color: #222;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.date-picker:focus {
+    border-color: #888;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Tombol Minimalis Cowok (Hitam-Putih-Abu Modern) */
+.next-btn {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #121212;
+    border: none;
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.next-btn:hover:not(:disabled) {
+    background-color: #cccccc;
+    transform: translateY(-2px);
+}
+
+.next-btn:disabled {
+    background-color: #333333;
+    color: #777777;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Halaman Utama (Ulang Tahun) */
+.container-ultah {
+    max-width: 650px;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.decor-heart {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.judul-ultah {
+    font-family: 'Sacramento', cursive;
+    font-size: 3.8rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.kotak-ucapan {
+    background: rgba(25, 25, 25, 0.85);
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.kotak-ucapan p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #dcdcdc;
+    margin-bottom: 15px;
+    text-indent: 20px;
+}
+
+.hashtag-ultah {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    font-weight: bold;
+    color: #888888;
+    letter-spacing: 1px;
+}
+
+/* Tata Letak 3 Foto (Bingkai Dark-Mode) */
+.galeri-tiga-foto {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+@media (min-width: 600px) {
+    .galeri-tiga-foto {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .bingkai-foto {
+        width: 31%;
+    }
+}
+
+.bingkai-foto {
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 1px solid #2d2d2d;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.bingkai-foto:hover {
+    transform: translateY(-5px);
+    border-color: #555;
+}
+
+.bingkai-foto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: brightness(90%); /* Menyesuaikan foto agar senada dengan tema dark */
+}
+
+.caption-foto {
+    font-size: 0.85rem;
+    color: #aaaaaa;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Animasi Denyut Jantung */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
